@@ -1,0 +1,1733 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DBIDIAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="atencionVehiculo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="propietarioId" Type="int" Nullable="false" />
+          <Property Name="vehiculoTipoId" Type="int" Nullable="false" />
+          <Property Name="PatenteVehiculo" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="SelloId" Type="int" Nullable="false" />
+          <Property Name="marcaId" Type="int" Nullable="false" />
+          <Property Name="modeloId" Type="int" Nullable="false" />
+          <Property Name="año" Type="int" Nullable="false" />
+          <Property Name="cilindradaVehiculo" Type="int" Nullable="false" />
+          <Property Name="nroMotor" Type="int" Nullable="false" />
+          <Property Name="nroChasis" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="nroPuertas" Type="int" Nullable="false" />
+          <Property Name="transmisionId" Type="int" Nullable="false" />
+          <Property Name="combustibleId" Type="int" Nullable="false" />
+          <Property Name="traccionId" Type="int" Nullable="false" />
+          <Property Name="servicioId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BoletaRevision">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nroAtencionId" Type="int" Nullable="false" />
+          <Property Name="SucursalId" Type="int" Nullable="false" />
+          <Property Name="vehiculoPatente" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="formaPagoId" Type="int" Nullable="false" />
+          <Property Name="ServicioId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CertificadoRevision">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="atencionNroId" Type="int" Nullable="false" />
+          <Property Name="estadoRevisionId" Type="int" Nullable="false" />
+          <Property Name="nroCertMTT" Type="int" Nullable="false" />
+          <Property Name="VehiculoPatente" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ciudad">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigoCiudadMTT" Type="int" Nullable="false" />
+          <Property Name="regionId" Type="int" Nullable="false" />
+          <Property Name="nombreCiudad" Type="varchar" MaxLength="40" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EstadoRevision">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nroAtencionId" Type="int" Nullable="false" />
+          <Property Name="estadoRevisión" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Jefatura">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tipoJefatura" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MarcaVehiculo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigoMarcaMTT" Type="int" Nullable="false" />
+          <Property Name="nombreMarca" Type="varchar" MaxLength="40" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ModeloVehiculo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigoModeloMTT" Type="int" Nullable="false" />
+          <Property Name="nombreModelo" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Perfiles">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="perfil" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PropietarioVehiculo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="rutPropietario" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="nombresPropietario" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="propietarioApellidoPaterno" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="propietarioApellidoMaterno" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ciudadId" Type="int" Nullable="false" />
+          <Property Name="direccion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="telefono" Type="int" Nullable="false" />
+          <Property Name="correo" Type="varchar" MaxLength="40" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Region">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigoRegionMTT" Type="int" Nullable="false" />
+          <Property Name="nombreRegion" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ResponsablePago">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NroAtencionId" Type="int" Nullable="false" />
+          <Property Name="rutCliente" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="clienteNombres" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="clienteApellidoPaterno" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="cleinteApellidoMaterno" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="telefono" Type="int" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="dirección" Type="varchar" MaxLength="60" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ResultadoEstacionGases">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nroAtencionId" Type="int" Nullable="false" />
+          <Property Name="vehiculoPatente" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="resultadoOpacidad" Type="int" Nullable="false" />
+          <Property Name="resultadoCo2" Type="int" Nullable="false" />
+          <Property Name="resultadoHc" Type="int" Nullable="false" />
+          <Property Name="resultadoNo" Type="int" Nullable="false" />
+          <Property Name="resultadoNoCo2" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ResultadosEstacionFrenometro">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nroAtencionId" Type="int" Nullable="false" />
+          <Property Name="vechiculoPatente" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="resultadoAlineacion" Type="int" Nullable="false" />
+          <Property Name="resultadoSuspencion" Type="int" Nullable="false" />
+          <Property Name="resultadoFrenoIzquierdo" Type="int" Nullable="false" />
+          <Property Name="resultadoFrenoDerecho" Type="int" Nullable="false" />
+          <Property Name="resultadoFrenoEmergencia" Type="int" Nullable="false" />
+          <Property Name="resultadoLucesAltas" Type="int" Nullable="false" />
+          <Property Name="resultadoLucesBajas" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ResultadosEstacionVisuales">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nroAtencionId" Type="int" Nullable="false" />
+          <Property Name="vehiculoPatente" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="comprobacionNroMotor" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="comprobacionNroChazis" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="estadoLuzFreno" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="estadoTercerLuzFreno" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="estadoLuzVirage" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="estadoLuzReversa" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SelloVehiculo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="selloCodigoMTT" Type="int" Nullable="false" />
+          <Property Name="sello" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Servicios">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigoServicioMtt" Type="int" Nullable="false" />
+          <Property Name="DescripciónServicio" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="valorServicio" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sucursal">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigoSucursalMTT" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="NombreSucursal" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="ciudadNombre" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipoCombustible">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigoCombustibleMTT" Type="int" Nullable="false" />
+          <Property Name="tipoCombustible" Type="varchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipoPagos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tipoPago" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipoVehiculo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigoTipoVehiculoMTT" Type="int" Nullable="false" />
+          <Property Name="tipoVehiculo" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Traccion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="traccionCodigoMTT" Type="int" Nullable="false" />
+          <Property Name="tipoTraccion" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Transmision">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigoTransmisionMTT" Type="int" Nullable="false" />
+          <Property Name="tipoTransmision" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TrazaWebServiceMTT">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nroAtencionId" Type="int" Nullable="false" />
+          <Property Name="respuestaWebService" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fechaHoraRespuesta" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreUsuario" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="apellidoPaterno" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="apellidoMaterno" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="mail" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="ciudadId" Type="int" Nullable="false" />
+          <Property Name="perfilId" Type="int" Nullable="false" />
+          <Property Name="jefaturaId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_atencionVehiculo_MarcaVehiculo">
+          <End Role="MarcaVehiculo" Type="Self.MarcaVehiculo" Multiplicity="1" />
+          <End Role="atencionVehiculo" Type="Self.atencionVehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MarcaVehiculo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="atencionVehiculo">
+              <PropertyRef Name="marcaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_atencionVehiculo_ModeloVehiculo">
+          <End Role="ModeloVehiculo" Type="Self.ModeloVehiculo" Multiplicity="1" />
+          <End Role="atencionVehiculo" Type="Self.atencionVehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ModeloVehiculo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="atencionVehiculo">
+              <PropertyRef Name="modeloId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_atencionVehiculo_PropietarioVehiculo">
+          <End Role="PropietarioVehiculo" Type="Self.PropietarioVehiculo" Multiplicity="1" />
+          <End Role="atencionVehiculo" Type="Self.atencionVehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PropietarioVehiculo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="atencionVehiculo">
+              <PropertyRef Name="propietarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_atencionVehiculo_SelloVehiculo">
+          <End Role="SelloVehiculo" Type="Self.SelloVehiculo" Multiplicity="1" />
+          <End Role="atencionVehiculo" Type="Self.atencionVehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SelloVehiculo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="atencionVehiculo">
+              <PropertyRef Name="SelloId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_atencionVehiculo_Servicios">
+          <End Role="Servicios" Type="Self.Servicios" Multiplicity="1" />
+          <End Role="atencionVehiculo" Type="Self.atencionVehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servicios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="atencionVehiculo">
+              <PropertyRef Name="servicioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_atencionVehiculo_TipoCombustible">
+          <End Role="TipoCombustible" Type="Self.TipoCombustible" Multiplicity="1" />
+          <End Role="atencionVehiculo" Type="Self.atencionVehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoCombustible">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="atencionVehiculo">
+              <PropertyRef Name="combustibleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_atencionVehiculo_TipoVehiculo">
+          <End Role="TipoVehiculo" Type="Self.TipoVehiculo" Multiplicity="1" />
+          <End Role="atencionVehiculo" Type="Self.atencionVehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoVehiculo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="atencionVehiculo">
+              <PropertyRef Name="vehiculoTipoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_atencionVehiculo_Traccion">
+          <End Role="Traccion" Type="Self.Traccion" Multiplicity="1" />
+          <End Role="atencionVehiculo" Type="Self.atencionVehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Traccion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="atencionVehiculo">
+              <PropertyRef Name="traccionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_atencionVehiculo_Transmision">
+          <End Role="Transmision" Type="Self.Transmision" Multiplicity="1" />
+          <End Role="atencionVehiculo" Type="Self.atencionVehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Transmision">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="atencionVehiculo">
+              <PropertyRef Name="transmisionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BoletaRevision_atencionVehiculo">
+          <End Role="atencionVehiculo" Type="Self.atencionVehiculo" Multiplicity="1" />
+          <End Role="BoletaRevision" Type="Self.BoletaRevision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="atencionVehiculo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="BoletaRevision">
+              <PropertyRef Name="nroAtencionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BoletaRevision_Servicios">
+          <End Role="Servicios" Type="Self.Servicios" Multiplicity="1" />
+          <End Role="BoletaRevision" Type="Self.BoletaRevision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servicios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="BoletaRevision">
+              <PropertyRef Name="ServicioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BoletaRevision_Sucursal">
+          <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="1" />
+          <End Role="BoletaRevision" Type="Self.BoletaRevision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="BoletaRevision">
+              <PropertyRef Name="SucursalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BoletaRevision_TipoPagos">
+          <End Role="TipoPagos" Type="Self.TipoPagos" Multiplicity="1" />
+          <End Role="BoletaRevision" Type="Self.BoletaRevision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoPagos">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="BoletaRevision">
+              <PropertyRef Name="formaPagoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CertificadoRevision_atencionVehiculo">
+          <End Role="atencionVehiculo" Type="Self.atencionVehiculo" Multiplicity="1" />
+          <End Role="CertificadoRevision" Type="Self.CertificadoRevision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="atencionVehiculo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CertificadoRevision">
+              <PropertyRef Name="atencionNroId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CertificadoRevision_EstadoRevision">
+          <End Role="EstadoRevision" Type="Self.EstadoRevision" Multiplicity="1" />
+          <End Role="CertificadoRevision" Type="Self.CertificadoRevision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EstadoRevision">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CertificadoRevision">
+              <PropertyRef Name="estadoRevisionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ciudad_Region">
+          <End Role="Region" Type="Self.Region" Multiplicity="1" />
+          <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Region">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Ciudad">
+              <PropertyRef Name="regionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PropietarioVehiculo_Ciudad">
+          <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="1" />
+          <End Role="PropietarioVehiculo" Type="Self.PropietarioVehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ciudad">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PropietarioVehiculo">
+              <PropertyRef Name="ciudadId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResponsablePago_atencionVehiculo">
+          <End Role="atencionVehiculo" Type="Self.atencionVehiculo" Multiplicity="1" />
+          <End Role="ResponsablePago" Type="Self.ResponsablePago" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="atencionVehiculo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ResponsablePago">
+              <PropertyRef Name="NroAtencionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResultadoEstacionGases_atencionVehiculo">
+          <End Role="atencionVehiculo" Type="Self.atencionVehiculo" Multiplicity="1" />
+          <End Role="ResultadoEstacionGases" Type="Self.ResultadoEstacionGases" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="atencionVehiculo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ResultadoEstacionGases">
+              <PropertyRef Name="nroAtencionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResultadosEstacionFrenometro_atencionVehiculo1">
+          <End Role="atencionVehiculo" Type="Self.atencionVehiculo" Multiplicity="1" />
+          <End Role="ResultadosEstacionFrenometro" Type="Self.ResultadosEstacionFrenometro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="atencionVehiculo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ResultadosEstacionFrenometro">
+              <PropertyRef Name="nroAtencionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResultadosEstacionVisuales_atencionVehiculo">
+          <End Role="atencionVehiculo" Type="Self.atencionVehiculo" Multiplicity="1" />
+          <End Role="ResultadosEstacionVisuales" Type="Self.ResultadosEstacionVisuales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="atencionVehiculo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ResultadosEstacionVisuales">
+              <PropertyRef Name="nroAtencionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrazaWebServiceMTT_atencionVehiculo">
+          <End Role="atencionVehiculo" Type="Self.atencionVehiculo" Multiplicity="1" />
+          <End Role="TrazaWebServiceMTT" Type="Self.TrazaWebServiceMTT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="atencionVehiculo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TrazaWebServiceMTT">
+              <PropertyRef Name="nroAtencionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Ciudad">
+          <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ciudad">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="ciudadId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Jefatura">
+          <End Role="Jefatura" Type="Self.Jefatura" Multiplicity="1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jefatura">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="jefaturaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Perfiles">
+          <End Role="Perfiles" Type="Self.Perfiles" Multiplicity="1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Perfiles">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="perfilId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBIDIAModelStoreContainer">
+          <EntitySet Name="atencionVehiculo" EntityType="Self.atencionVehiculo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BoletaRevision" EntityType="Self.BoletaRevision" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CertificadoRevision" EntityType="Self.CertificadoRevision" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ciudad" EntityType="Self.Ciudad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EstadoRevision" EntityType="Self.EstadoRevision" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Jefatura" EntityType="Self.Jefatura" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MarcaVehiculo" EntityType="Self.MarcaVehiculo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ModeloVehiculo" EntityType="Self.ModeloVehiculo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Perfiles" EntityType="Self.Perfiles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PropietarioVehiculo" EntityType="Self.PropietarioVehiculo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Region" EntityType="Self.Region" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ResponsablePago" EntityType="Self.ResponsablePago" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ResultadoEstacionGases" EntityType="Self.ResultadoEstacionGases" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ResultadosEstacionFrenometro" EntityType="Self.ResultadosEstacionFrenometro" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ResultadosEstacionVisuales" EntityType="Self.ResultadosEstacionVisuales" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SelloVehiculo" EntityType="Self.SelloVehiculo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Servicios" EntityType="Self.Servicios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sucursal" EntityType="Self.Sucursal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoCombustible" EntityType="Self.TipoCombustible" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoPagos" EntityType="Self.TipoPagos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoVehiculo" EntityType="Self.TipoVehiculo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Traccion" EntityType="Self.Traccion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Transmision" EntityType="Self.Transmision" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TrazaWebServiceMTT" EntityType="Self.TrazaWebServiceMTT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_atencionVehiculo_MarcaVehiculo" Association="Self.FK_atencionVehiculo_MarcaVehiculo">
+            <End Role="MarcaVehiculo" EntitySet="MarcaVehiculo" />
+            <End Role="atencionVehiculo" EntitySet="atencionVehiculo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_atencionVehiculo_ModeloVehiculo" Association="Self.FK_atencionVehiculo_ModeloVehiculo">
+            <End Role="ModeloVehiculo" EntitySet="ModeloVehiculo" />
+            <End Role="atencionVehiculo" EntitySet="atencionVehiculo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_atencionVehiculo_PropietarioVehiculo" Association="Self.FK_atencionVehiculo_PropietarioVehiculo">
+            <End Role="PropietarioVehiculo" EntitySet="PropietarioVehiculo" />
+            <End Role="atencionVehiculo" EntitySet="atencionVehiculo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_atencionVehiculo_SelloVehiculo" Association="Self.FK_atencionVehiculo_SelloVehiculo">
+            <End Role="SelloVehiculo" EntitySet="SelloVehiculo" />
+            <End Role="atencionVehiculo" EntitySet="atencionVehiculo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_atencionVehiculo_Servicios" Association="Self.FK_atencionVehiculo_Servicios">
+            <End Role="Servicios" EntitySet="Servicios" />
+            <End Role="atencionVehiculo" EntitySet="atencionVehiculo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_atencionVehiculo_TipoCombustible" Association="Self.FK_atencionVehiculo_TipoCombustible">
+            <End Role="TipoCombustible" EntitySet="TipoCombustible" />
+            <End Role="atencionVehiculo" EntitySet="atencionVehiculo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_atencionVehiculo_TipoVehiculo" Association="Self.FK_atencionVehiculo_TipoVehiculo">
+            <End Role="TipoVehiculo" EntitySet="TipoVehiculo" />
+            <End Role="atencionVehiculo" EntitySet="atencionVehiculo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_atencionVehiculo_Traccion" Association="Self.FK_atencionVehiculo_Traccion">
+            <End Role="Traccion" EntitySet="Traccion" />
+            <End Role="atencionVehiculo" EntitySet="atencionVehiculo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_atencionVehiculo_Transmision" Association="Self.FK_atencionVehiculo_Transmision">
+            <End Role="Transmision" EntitySet="Transmision" />
+            <End Role="atencionVehiculo" EntitySet="atencionVehiculo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BoletaRevision_atencionVehiculo" Association="Self.FK_BoletaRevision_atencionVehiculo">
+            <End Role="atencionVehiculo" EntitySet="atencionVehiculo" />
+            <End Role="BoletaRevision" EntitySet="BoletaRevision" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BoletaRevision_Servicios" Association="Self.FK_BoletaRevision_Servicios">
+            <End Role="Servicios" EntitySet="Servicios" />
+            <End Role="BoletaRevision" EntitySet="BoletaRevision" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BoletaRevision_Sucursal" Association="Self.FK_BoletaRevision_Sucursal">
+            <End Role="Sucursal" EntitySet="Sucursal" />
+            <End Role="BoletaRevision" EntitySet="BoletaRevision" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BoletaRevision_TipoPagos" Association="Self.FK_BoletaRevision_TipoPagos">
+            <End Role="TipoPagos" EntitySet="TipoPagos" />
+            <End Role="BoletaRevision" EntitySet="BoletaRevision" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CertificadoRevision_atencionVehiculo" Association="Self.FK_CertificadoRevision_atencionVehiculo">
+            <End Role="atencionVehiculo" EntitySet="atencionVehiculo" />
+            <End Role="CertificadoRevision" EntitySet="CertificadoRevision" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CertificadoRevision_EstadoRevision" Association="Self.FK_CertificadoRevision_EstadoRevision">
+            <End Role="EstadoRevision" EntitySet="EstadoRevision" />
+            <End Role="CertificadoRevision" EntitySet="CertificadoRevision" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ciudad_Region" Association="Self.FK_Ciudad_Region">
+            <End Role="Region" EntitySet="Region" />
+            <End Role="Ciudad" EntitySet="Ciudad" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PropietarioVehiculo_Ciudad" Association="Self.FK_PropietarioVehiculo_Ciudad">
+            <End Role="Ciudad" EntitySet="Ciudad" />
+            <End Role="PropietarioVehiculo" EntitySet="PropietarioVehiculo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResponsablePago_atencionVehiculo" Association="Self.FK_ResponsablePago_atencionVehiculo">
+            <End Role="atencionVehiculo" EntitySet="atencionVehiculo" />
+            <End Role="ResponsablePago" EntitySet="ResponsablePago" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResultadoEstacionGases_atencionVehiculo" Association="Self.FK_ResultadoEstacionGases_atencionVehiculo">
+            <End Role="atencionVehiculo" EntitySet="atencionVehiculo" />
+            <End Role="ResultadoEstacionGases" EntitySet="ResultadoEstacionGases" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResultadosEstacionFrenometro_atencionVehiculo1" Association="Self.FK_ResultadosEstacionFrenometro_atencionVehiculo1">
+            <End Role="atencionVehiculo" EntitySet="atencionVehiculo" />
+            <End Role="ResultadosEstacionFrenometro" EntitySet="ResultadosEstacionFrenometro" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResultadosEstacionVisuales_atencionVehiculo" Association="Self.FK_ResultadosEstacionVisuales_atencionVehiculo">
+            <End Role="atencionVehiculo" EntitySet="atencionVehiculo" />
+            <End Role="ResultadosEstacionVisuales" EntitySet="ResultadosEstacionVisuales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrazaWebServiceMTT_atencionVehiculo" Association="Self.FK_TrazaWebServiceMTT_atencionVehiculo">
+            <End Role="atencionVehiculo" EntitySet="atencionVehiculo" />
+            <End Role="TrazaWebServiceMTT" EntitySet="TrazaWebServiceMTT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Ciudad" Association="Self.FK_Usuario_Ciudad">
+            <End Role="Ciudad" EntitySet="Ciudad" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Jefatura" Association="Self.FK_Usuario_Jefatura">
+            <End Role="Jefatura" EntitySet="Jefatura" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Perfiles" Association="Self.FK_Usuario_Perfiles">
+            <End Role="Perfiles" EntitySet="Perfiles" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBIDIAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="atencionVehiculo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="propietarioId" Type="Int32" Nullable="false" />
+          <Property Name="vehiculoTipoId" Type="Int32" Nullable="false" />
+          <Property Name="PatenteVehiculo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SelloId" Type="Int32" Nullable="false" />
+          <Property Name="marcaId" Type="Int32" Nullable="false" />
+          <Property Name="modeloId" Type="Int32" Nullable="false" />
+          <Property Name="año" Type="Int32" Nullable="false" />
+          <Property Name="cilindradaVehiculo" Type="Int32" Nullable="false" />
+          <Property Name="nroMotor" Type="Int32" Nullable="false" />
+          <Property Name="nroChasis" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nroPuertas" Type="Int32" Nullable="false" />
+          <Property Name="transmisionId" Type="Int32" Nullable="false" />
+          <Property Name="combustibleId" Type="Int32" Nullable="false" />
+          <Property Name="traccionId" Type="Int32" Nullable="false" />
+          <Property Name="servicioId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MarcaVehiculo" Relationship="Self.FK_atencionVehiculo_MarcaVehiculo" FromRole="atencionVehiculo" ToRole="MarcaVehiculo" />
+          <NavigationProperty Name="ModeloVehiculo" Relationship="Self.FK_atencionVehiculo_ModeloVehiculo" FromRole="atencionVehiculo" ToRole="ModeloVehiculo" />
+          <NavigationProperty Name="PropietarioVehiculo" Relationship="Self.FK_atencionVehiculo_PropietarioVehiculo" FromRole="atencionVehiculo" ToRole="PropietarioVehiculo" />
+          <NavigationProperty Name="SelloVehiculo" Relationship="Self.FK_atencionVehiculo_SelloVehiculo" FromRole="atencionVehiculo" ToRole="SelloVehiculo" />
+          <NavigationProperty Name="Servicios" Relationship="Self.FK_atencionVehiculo_Servicios" FromRole="atencionVehiculo" ToRole="Servicios" />
+          <NavigationProperty Name="TipoCombustible" Relationship="Self.FK_atencionVehiculo_TipoCombustible" FromRole="atencionVehiculo" ToRole="TipoCombustible" />
+          <NavigationProperty Name="TipoVehiculo" Relationship="Self.FK_atencionVehiculo_TipoVehiculo" FromRole="atencionVehiculo" ToRole="TipoVehiculo" />
+          <NavigationProperty Name="Traccion" Relationship="Self.FK_atencionVehiculo_Traccion" FromRole="atencionVehiculo" ToRole="Traccion" />
+          <NavigationProperty Name="Transmision" Relationship="Self.FK_atencionVehiculo_Transmision" FromRole="atencionVehiculo" ToRole="Transmision" />
+          <NavigationProperty Name="BoletaRevision" Relationship="Self.FK_BoletaRevision_atencionVehiculo" FromRole="atencionVehiculo" ToRole="BoletaRevision" />
+          <NavigationProperty Name="CertificadoRevision" Relationship="Self.FK_CertificadoRevision_atencionVehiculo" FromRole="atencionVehiculo" ToRole="CertificadoRevision" />
+          <NavigationProperty Name="ResponsablePago" Relationship="Self.FK_ResponsablePago_atencionVehiculo" FromRole="atencionVehiculo" ToRole="ResponsablePago" />
+          <NavigationProperty Name="ResultadoEstacionGases" Relationship="Self.FK_ResultadoEstacionGases_atencionVehiculo" FromRole="atencionVehiculo" ToRole="ResultadoEstacionGases" />
+          <NavigationProperty Name="ResultadosEstacionFrenometro" Relationship="Self.FK_ResultadosEstacionFrenometro_atencionVehiculo1" FromRole="atencionVehiculo" ToRole="ResultadosEstacionFrenometro" />
+          <NavigationProperty Name="ResultadosEstacionVisuales" Relationship="Self.FK_ResultadosEstacionVisuales_atencionVehiculo" FromRole="atencionVehiculo" ToRole="ResultadosEstacionVisuales" />
+          <NavigationProperty Name="TrazaWebServiceMTT" Relationship="Self.FK_TrazaWebServiceMTT_atencionVehiculo" FromRole="atencionVehiculo" ToRole="TrazaWebServiceMTT" />
+        </EntityType>
+        <EntityType Name="BoletaRevision">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nroAtencionId" Type="Int32" Nullable="false" />
+          <Property Name="SucursalId" Type="Int32" Nullable="false" />
+          <Property Name="vehiculoPatente" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="formaPagoId" Type="Int32" Nullable="false" />
+          <Property Name="ServicioId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="atencionVehiculo" Relationship="Self.FK_BoletaRevision_atencionVehiculo" FromRole="BoletaRevision" ToRole="atencionVehiculo" />
+          <NavigationProperty Name="Servicios" Relationship="Self.FK_BoletaRevision_Servicios" FromRole="BoletaRevision" ToRole="Servicios" />
+          <NavigationProperty Name="Sucursal" Relationship="Self.FK_BoletaRevision_Sucursal" FromRole="BoletaRevision" ToRole="Sucursal" />
+          <NavigationProperty Name="TipoPagos" Relationship="Self.FK_BoletaRevision_TipoPagos" FromRole="BoletaRevision" ToRole="TipoPagos" />
+        </EntityType>
+        <EntityType Name="CertificadoRevision">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="atencionNroId" Type="Int32" Nullable="false" />
+          <Property Name="estadoRevisionId" Type="Int32" Nullable="false" />
+          <Property Name="nroCertMTT" Type="Int32" Nullable="false" />
+          <Property Name="VehiculoPatente" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="atencionVehiculo" Relationship="Self.FK_CertificadoRevision_atencionVehiculo" FromRole="CertificadoRevision" ToRole="atencionVehiculo" />
+          <NavigationProperty Name="EstadoRevision" Relationship="Self.FK_CertificadoRevision_EstadoRevision" FromRole="CertificadoRevision" ToRole="EstadoRevision" />
+        </EntityType>
+        <EntityType Name="Ciudad">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigoCiudadMTT" Type="Int32" Nullable="false" />
+          <Property Name="regionId" Type="Int32" Nullable="false" />
+          <Property Name="nombreCiudad" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Region" Relationship="Self.FK_Ciudad_Region" FromRole="Ciudad" ToRole="Region" />
+          <NavigationProperty Name="PropietarioVehiculo" Relationship="Self.FK_PropietarioVehiculo_Ciudad" FromRole="Ciudad" ToRole="PropietarioVehiculo" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK_Usuario_Ciudad" FromRole="Ciudad" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="EstadoRevision">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nroAtencionId" Type="Int32" Nullable="false" />
+          <Property Name="estadoRevisión" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CertificadoRevision" Relationship="Self.FK_CertificadoRevision_EstadoRevision" FromRole="EstadoRevision" ToRole="CertificadoRevision" />
+        </EntityType>
+        <EntityType Name="Jefatura">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tipoJefatura" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK_Usuario_Jefatura" FromRole="Jefatura" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="MarcaVehiculo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigoMarcaMTT" Type="Int32" Nullable="false" />
+          <Property Name="nombreMarca" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="atencionVehiculo" Relationship="Self.FK_atencionVehiculo_MarcaVehiculo" FromRole="MarcaVehiculo" ToRole="atencionVehiculo" />
+        </EntityType>
+        <EntityType Name="ModeloVehiculo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigoModeloMTT" Type="Int32" Nullable="false" />
+          <Property Name="nombreModelo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="atencionVehiculo" Relationship="Self.FK_atencionVehiculo_ModeloVehiculo" FromRole="ModeloVehiculo" ToRole="atencionVehiculo" />
+        </EntityType>
+        <EntityType Name="Perfiles">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="perfil" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK_Usuario_Perfiles" FromRole="Perfiles" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="PropietarioVehiculo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="rutPropietario" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombresPropietario" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="propietarioApellidoPaterno" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="propietarioApellidoMaterno" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ciudadId" Type="Int32" Nullable="false" />
+          <Property Name="direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="telefono" Type="Int32" Nullable="false" />
+          <Property Name="correo" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="atencionVehiculo" Relationship="Self.FK_atencionVehiculo_PropietarioVehiculo" FromRole="PropietarioVehiculo" ToRole="atencionVehiculo" />
+          <NavigationProperty Name="Ciudad" Relationship="Self.FK_PropietarioVehiculo_Ciudad" FromRole="PropietarioVehiculo" ToRole="Ciudad" />
+        </EntityType>
+        <EntityType Name="Region">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigoRegionMTT" Type="Int32" Nullable="false" />
+          <Property Name="nombreRegion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Ciudad" Relationship="Self.FK_Ciudad_Region" FromRole="Region" ToRole="Ciudad" />
+        </EntityType>
+        <EntityType Name="ResponsablePago">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NroAtencionId" Type="Int32" Nullable="false" />
+          <Property Name="rutCliente" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="clienteNombres" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="clienteApellidoPaterno" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cleinteApellidoMaterno" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="telefono" Type="Int32" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dirección" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="atencionVehiculo" Relationship="Self.FK_ResponsablePago_atencionVehiculo" FromRole="ResponsablePago" ToRole="atencionVehiculo" />
+        </EntityType>
+        <EntityType Name="ResultadoEstacionGases">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nroAtencionId" Type="Int32" Nullable="false" />
+          <Property Name="vehiculoPatente" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="resultadoOpacidad" Type="Int32" Nullable="false" />
+          <Property Name="resultadoCo2" Type="Int32" Nullable="false" />
+          <Property Name="resultadoHc" Type="Int32" Nullable="false" />
+          <Property Name="resultadoNo" Type="Int32" Nullable="false" />
+          <Property Name="resultadoNoCo2" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="atencionVehiculo" Relationship="Self.FK_ResultadoEstacionGases_atencionVehiculo" FromRole="ResultadoEstacionGases" ToRole="atencionVehiculo" />
+        </EntityType>
+        <EntityType Name="ResultadosEstacionFrenometro">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nroAtencionId" Type="Int32" Nullable="false" />
+          <Property Name="vechiculoPatente" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="resultadoAlineacion" Type="Int32" Nullable="false" />
+          <Property Name="resultadoSuspencion" Type="Int32" Nullable="false" />
+          <Property Name="resultadoFrenoIzquierdo" Type="Int32" Nullable="false" />
+          <Property Name="resultadoFrenoDerecho" Type="Int32" Nullable="false" />
+          <Property Name="resultadoFrenoEmergencia" Type="Int32" Nullable="false" />
+          <Property Name="resultadoLucesAltas" Type="Int32" Nullable="false" />
+          <Property Name="resultadoLucesBajas" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="atencionVehiculo" Relationship="Self.FK_ResultadosEstacionFrenometro_atencionVehiculo1" FromRole="ResultadosEstacionFrenometro" ToRole="atencionVehiculo" />
+        </EntityType>
+        <EntityType Name="ResultadosEstacionVisuales">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nroAtencionId" Type="Int32" Nullable="false" />
+          <Property Name="vehiculoPatente" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="comprobacionNroMotor" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="comprobacionNroChazis" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estadoLuzFreno" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estadoTercerLuzFreno" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estadoLuzVirage" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estadoLuzReversa" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="atencionVehiculo" Relationship="Self.FK_ResultadosEstacionVisuales_atencionVehiculo" FromRole="ResultadosEstacionVisuales" ToRole="atencionVehiculo" />
+        </EntityType>
+        <EntityType Name="SelloVehiculo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="selloCodigoMTT" Type="Int32" Nullable="false" />
+          <Property Name="sello" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="atencionVehiculo" Relationship="Self.FK_atencionVehiculo_SelloVehiculo" FromRole="SelloVehiculo" ToRole="atencionVehiculo" />
+        </EntityType>
+        <EntityType Name="Servicios">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigoServicioMtt" Type="Int32" Nullable="false" />
+          <Property Name="DescripciónServicio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="valorServicio" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="atencionVehiculo" Relationship="Self.FK_atencionVehiculo_Servicios" FromRole="Servicios" ToRole="atencionVehiculo" />
+          <NavigationProperty Name="BoletaRevision" Relationship="Self.FK_BoletaRevision_Servicios" FromRole="Servicios" ToRole="BoletaRevision" />
+        </EntityType>
+        <EntityType Name="Sucursal">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigoSucursalMTT" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NombreSucursal" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ciudadNombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="BoletaRevision" Relationship="Self.FK_BoletaRevision_Sucursal" FromRole="Sucursal" ToRole="BoletaRevision" />
+        </EntityType>
+        <EntityType Name="TipoCombustible">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigoCombustibleMTT" Type="Int32" Nullable="false" />
+          <Property Name="tipoCombustible1" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="atencionVehiculo" Relationship="Self.FK_atencionVehiculo_TipoCombustible" FromRole="TipoCombustible" ToRole="atencionVehiculo" />
+        </EntityType>
+        <EntityType Name="TipoPagos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tipoPago" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="BoletaRevision" Relationship="Self.FK_BoletaRevision_TipoPagos" FromRole="TipoPagos" ToRole="BoletaRevision" />
+        </EntityType>
+        <EntityType Name="TipoVehiculo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigoTipoVehiculoMTT" Type="Int32" Nullable="false" />
+          <Property Name="tipoVehiculo1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="atencionVehiculo" Relationship="Self.FK_atencionVehiculo_TipoVehiculo" FromRole="TipoVehiculo" ToRole="atencionVehiculo" />
+        </EntityType>
+        <EntityType Name="Traccion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="traccionCodigoMTT" Type="Int32" Nullable="false" />
+          <Property Name="tipoTraccion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="atencionVehiculo" Relationship="Self.FK_atencionVehiculo_Traccion" FromRole="Traccion" ToRole="atencionVehiculo" />
+        </EntityType>
+        <EntityType Name="Transmision">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigoTransmisionMTT" Type="Int32" Nullable="false" />
+          <Property Name="tipoTransmision" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="atencionVehiculo" Relationship="Self.FK_atencionVehiculo_Transmision" FromRole="Transmision" ToRole="atencionVehiculo" />
+        </EntityType>
+        <EntityType Name="TrazaWebServiceMTT">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nroAtencionId" Type="Int32" Nullable="false" />
+          <Property Name="respuestaWebService" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaHoraRespuesta" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="atencionVehiculo" Relationship="Self.FK_TrazaWebServiceMTT_atencionVehiculo" FromRole="TrazaWebServiceMTT" ToRole="atencionVehiculo" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreUsuario" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellidoPaterno" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellidoMaterno" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="mail" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ciudadId" Type="Int32" Nullable="false" />
+          <Property Name="perfilId" Type="Int32" Nullable="false" />
+          <Property Name="jefaturaId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Ciudad" Relationship="Self.FK_Usuario_Ciudad" FromRole="Usuario" ToRole="Ciudad" />
+          <NavigationProperty Name="Jefatura" Relationship="Self.FK_Usuario_Jefatura" FromRole="Usuario" ToRole="Jefatura" />
+          <NavigationProperty Name="Perfiles" Relationship="Self.FK_Usuario_Perfiles" FromRole="Usuario" ToRole="Perfiles" />
+        </EntityType>
+        <Association Name="FK_atencionVehiculo_MarcaVehiculo">
+          <End Role="MarcaVehiculo" Type="Self.MarcaVehiculo" Multiplicity="1" />
+          <End Role="atencionVehiculo" Type="Self.atencionVehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MarcaVehiculo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="atencionVehiculo">
+              <PropertyRef Name="marcaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_atencionVehiculo_ModeloVehiculo">
+          <End Role="ModeloVehiculo" Type="Self.ModeloVehiculo" Multiplicity="1" />
+          <End Role="atencionVehiculo" Type="Self.atencionVehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ModeloVehiculo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="atencionVehiculo">
+              <PropertyRef Name="modeloId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_atencionVehiculo_PropietarioVehiculo">
+          <End Role="PropietarioVehiculo" Type="Self.PropietarioVehiculo" Multiplicity="1" />
+          <End Role="atencionVehiculo" Type="Self.atencionVehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PropietarioVehiculo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="atencionVehiculo">
+              <PropertyRef Name="propietarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_atencionVehiculo_SelloVehiculo">
+          <End Role="SelloVehiculo" Type="Self.SelloVehiculo" Multiplicity="1" />
+          <End Role="atencionVehiculo" Type="Self.atencionVehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SelloVehiculo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="atencionVehiculo">
+              <PropertyRef Name="SelloId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_atencionVehiculo_Servicios">
+          <End Role="Servicios" Type="Self.Servicios" Multiplicity="1" />
+          <End Role="atencionVehiculo" Type="Self.atencionVehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servicios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="atencionVehiculo">
+              <PropertyRef Name="servicioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_atencionVehiculo_TipoCombustible">
+          <End Role="TipoCombustible" Type="Self.TipoCombustible" Multiplicity="1" />
+          <End Role="atencionVehiculo" Type="Self.atencionVehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoCombustible">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="atencionVehiculo">
+              <PropertyRef Name="combustibleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_atencionVehiculo_TipoVehiculo">
+          <End Role="TipoVehiculo" Type="Self.TipoVehiculo" Multiplicity="1" />
+          <End Role="atencionVehiculo" Type="Self.atencionVehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoVehiculo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="atencionVehiculo">
+              <PropertyRef Name="vehiculoTipoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_atencionVehiculo_Traccion">
+          <End Role="Traccion" Type="Self.Traccion" Multiplicity="1" />
+          <End Role="atencionVehiculo" Type="Self.atencionVehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Traccion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="atencionVehiculo">
+              <PropertyRef Name="traccionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_atencionVehiculo_Transmision">
+          <End Role="Transmision" Type="Self.Transmision" Multiplicity="1" />
+          <End Role="atencionVehiculo" Type="Self.atencionVehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Transmision">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="atencionVehiculo">
+              <PropertyRef Name="transmisionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BoletaRevision_atencionVehiculo">
+          <End Role="atencionVehiculo" Type="Self.atencionVehiculo" Multiplicity="1" />
+          <End Role="BoletaRevision" Type="Self.BoletaRevision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="atencionVehiculo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="BoletaRevision">
+              <PropertyRef Name="nroAtencionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CertificadoRevision_atencionVehiculo">
+          <End Role="atencionVehiculo" Type="Self.atencionVehiculo" Multiplicity="1" />
+          <End Role="CertificadoRevision" Type="Self.CertificadoRevision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="atencionVehiculo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CertificadoRevision">
+              <PropertyRef Name="atencionNroId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResponsablePago_atencionVehiculo">
+          <End Role="atencionVehiculo" Type="Self.atencionVehiculo" Multiplicity="1" />
+          <End Role="ResponsablePago" Type="Self.ResponsablePago" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="atencionVehiculo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ResponsablePago">
+              <PropertyRef Name="NroAtencionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResultadoEstacionGases_atencionVehiculo">
+          <End Role="atencionVehiculo" Type="Self.atencionVehiculo" Multiplicity="1" />
+          <End Role="ResultadoEstacionGases" Type="Self.ResultadoEstacionGases" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="atencionVehiculo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ResultadoEstacionGases">
+              <PropertyRef Name="nroAtencionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResultadosEstacionFrenometro_atencionVehiculo1">
+          <End Role="atencionVehiculo" Type="Self.atencionVehiculo" Multiplicity="1" />
+          <End Role="ResultadosEstacionFrenometro" Type="Self.ResultadosEstacionFrenometro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="atencionVehiculo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ResultadosEstacionFrenometro">
+              <PropertyRef Name="nroAtencionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResultadosEstacionVisuales_atencionVehiculo">
+          <End Role="atencionVehiculo" Type="Self.atencionVehiculo" Multiplicity="1" />
+          <End Role="ResultadosEstacionVisuales" Type="Self.ResultadosEstacionVisuales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="atencionVehiculo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ResultadosEstacionVisuales">
+              <PropertyRef Name="nroAtencionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrazaWebServiceMTT_atencionVehiculo">
+          <End Role="atencionVehiculo" Type="Self.atencionVehiculo" Multiplicity="1" />
+          <End Role="TrazaWebServiceMTT" Type="Self.TrazaWebServiceMTT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="atencionVehiculo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TrazaWebServiceMTT">
+              <PropertyRef Name="nroAtencionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BoletaRevision_Servicios">
+          <End Role="Servicios" Type="Self.Servicios" Multiplicity="1" />
+          <End Role="BoletaRevision" Type="Self.BoletaRevision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servicios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="BoletaRevision">
+              <PropertyRef Name="ServicioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BoletaRevision_Sucursal">
+          <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="1" />
+          <End Role="BoletaRevision" Type="Self.BoletaRevision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="BoletaRevision">
+              <PropertyRef Name="SucursalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BoletaRevision_TipoPagos">
+          <End Role="TipoPagos" Type="Self.TipoPagos" Multiplicity="1" />
+          <End Role="BoletaRevision" Type="Self.BoletaRevision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoPagos">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="BoletaRevision">
+              <PropertyRef Name="formaPagoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CertificadoRevision_EstadoRevision">
+          <End Role="EstadoRevision" Type="Self.EstadoRevision" Multiplicity="1" />
+          <End Role="CertificadoRevision" Type="Self.CertificadoRevision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EstadoRevision">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CertificadoRevision">
+              <PropertyRef Name="estadoRevisionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ciudad_Region">
+          <End Role="Region" Type="Self.Region" Multiplicity="1" />
+          <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Region">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Ciudad">
+              <PropertyRef Name="regionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PropietarioVehiculo_Ciudad">
+          <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="1" />
+          <End Role="PropietarioVehiculo" Type="Self.PropietarioVehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ciudad">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PropietarioVehiculo">
+              <PropertyRef Name="ciudadId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Ciudad">
+          <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ciudad">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="ciudadId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Jefatura">
+          <End Role="Jefatura" Type="Self.Jefatura" Multiplicity="1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jefatura">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="jefaturaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Perfiles">
+          <End Role="Perfiles" Type="Self.Perfiles" Multiplicity="1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Perfiles">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="perfilId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="IdiaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="atencionVehiculo" EntityType="Self.atencionVehiculo" />
+          <EntitySet Name="BoletaRevision" EntityType="Self.BoletaRevision" />
+          <EntitySet Name="CertificadoRevision" EntityType="Self.CertificadoRevision" />
+          <EntitySet Name="Ciudad" EntityType="Self.Ciudad" />
+          <EntitySet Name="EstadoRevision" EntityType="Self.EstadoRevision" />
+          <EntitySet Name="Jefatura" EntityType="Self.Jefatura" />
+          <EntitySet Name="MarcaVehiculo" EntityType="Self.MarcaVehiculo" />
+          <EntitySet Name="ModeloVehiculo" EntityType="Self.ModeloVehiculo" />
+          <EntitySet Name="Perfiles" EntityType="Self.Perfiles" />
+          <EntitySet Name="PropietarioVehiculo" EntityType="Self.PropietarioVehiculo" />
+          <EntitySet Name="Region" EntityType="Self.Region" />
+          <EntitySet Name="ResponsablePago" EntityType="Self.ResponsablePago" />
+          <EntitySet Name="ResultadoEstacionGases" EntityType="Self.ResultadoEstacionGases" />
+          <EntitySet Name="ResultadosEstacionFrenometro" EntityType="Self.ResultadosEstacionFrenometro" />
+          <EntitySet Name="ResultadosEstacionVisuales" EntityType="Self.ResultadosEstacionVisuales" />
+          <EntitySet Name="SelloVehiculo" EntityType="Self.SelloVehiculo" />
+          <EntitySet Name="Servicios" EntityType="Self.Servicios" />
+          <EntitySet Name="Sucursal" EntityType="Self.Sucursal" />
+          <EntitySet Name="TipoCombustible" EntityType="Self.TipoCombustible" />
+          <EntitySet Name="TipoPagos" EntityType="Self.TipoPagos" />
+          <EntitySet Name="TipoVehiculo" EntityType="Self.TipoVehiculo" />
+          <EntitySet Name="Traccion" EntityType="Self.Traccion" />
+          <EntitySet Name="Transmision" EntityType="Self.Transmision" />
+          <EntitySet Name="TrazaWebServiceMTT" EntityType="Self.TrazaWebServiceMTT" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+          <AssociationSet Name="FK_atencionVehiculo_MarcaVehiculo" Association="Self.FK_atencionVehiculo_MarcaVehiculo">
+            <End Role="MarcaVehiculo" EntitySet="MarcaVehiculo" />
+            <End Role="atencionVehiculo" EntitySet="atencionVehiculo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_atencionVehiculo_ModeloVehiculo" Association="Self.FK_atencionVehiculo_ModeloVehiculo">
+            <End Role="ModeloVehiculo" EntitySet="ModeloVehiculo" />
+            <End Role="atencionVehiculo" EntitySet="atencionVehiculo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_atencionVehiculo_PropietarioVehiculo" Association="Self.FK_atencionVehiculo_PropietarioVehiculo">
+            <End Role="PropietarioVehiculo" EntitySet="PropietarioVehiculo" />
+            <End Role="atencionVehiculo" EntitySet="atencionVehiculo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_atencionVehiculo_SelloVehiculo" Association="Self.FK_atencionVehiculo_SelloVehiculo">
+            <End Role="SelloVehiculo" EntitySet="SelloVehiculo" />
+            <End Role="atencionVehiculo" EntitySet="atencionVehiculo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_atencionVehiculo_Servicios" Association="Self.FK_atencionVehiculo_Servicios">
+            <End Role="Servicios" EntitySet="Servicios" />
+            <End Role="atencionVehiculo" EntitySet="atencionVehiculo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_atencionVehiculo_TipoCombustible" Association="Self.FK_atencionVehiculo_TipoCombustible">
+            <End Role="TipoCombustible" EntitySet="TipoCombustible" />
+            <End Role="atencionVehiculo" EntitySet="atencionVehiculo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_atencionVehiculo_TipoVehiculo" Association="Self.FK_atencionVehiculo_TipoVehiculo">
+            <End Role="TipoVehiculo" EntitySet="TipoVehiculo" />
+            <End Role="atencionVehiculo" EntitySet="atencionVehiculo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_atencionVehiculo_Traccion" Association="Self.FK_atencionVehiculo_Traccion">
+            <End Role="Traccion" EntitySet="Traccion" />
+            <End Role="atencionVehiculo" EntitySet="atencionVehiculo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_atencionVehiculo_Transmision" Association="Self.FK_atencionVehiculo_Transmision">
+            <End Role="Transmision" EntitySet="Transmision" />
+            <End Role="atencionVehiculo" EntitySet="atencionVehiculo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BoletaRevision_atencionVehiculo" Association="Self.FK_BoletaRevision_atencionVehiculo">
+            <End Role="atencionVehiculo" EntitySet="atencionVehiculo" />
+            <End Role="BoletaRevision" EntitySet="BoletaRevision" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CertificadoRevision_atencionVehiculo" Association="Self.FK_CertificadoRevision_atencionVehiculo">
+            <End Role="atencionVehiculo" EntitySet="atencionVehiculo" />
+            <End Role="CertificadoRevision" EntitySet="CertificadoRevision" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResponsablePago_atencionVehiculo" Association="Self.FK_ResponsablePago_atencionVehiculo">
+            <End Role="atencionVehiculo" EntitySet="atencionVehiculo" />
+            <End Role="ResponsablePago" EntitySet="ResponsablePago" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResultadoEstacionGases_atencionVehiculo" Association="Self.FK_ResultadoEstacionGases_atencionVehiculo">
+            <End Role="atencionVehiculo" EntitySet="atencionVehiculo" />
+            <End Role="ResultadoEstacionGases" EntitySet="ResultadoEstacionGases" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResultadosEstacionFrenometro_atencionVehiculo1" Association="Self.FK_ResultadosEstacionFrenometro_atencionVehiculo1">
+            <End Role="atencionVehiculo" EntitySet="atencionVehiculo" />
+            <End Role="ResultadosEstacionFrenometro" EntitySet="ResultadosEstacionFrenometro" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResultadosEstacionVisuales_atencionVehiculo" Association="Self.FK_ResultadosEstacionVisuales_atencionVehiculo">
+            <End Role="atencionVehiculo" EntitySet="atencionVehiculo" />
+            <End Role="ResultadosEstacionVisuales" EntitySet="ResultadosEstacionVisuales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrazaWebServiceMTT_atencionVehiculo" Association="Self.FK_TrazaWebServiceMTT_atencionVehiculo">
+            <End Role="atencionVehiculo" EntitySet="atencionVehiculo" />
+            <End Role="TrazaWebServiceMTT" EntitySet="TrazaWebServiceMTT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BoletaRevision_Servicios" Association="Self.FK_BoletaRevision_Servicios">
+            <End Role="Servicios" EntitySet="Servicios" />
+            <End Role="BoletaRevision" EntitySet="BoletaRevision" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BoletaRevision_Sucursal" Association="Self.FK_BoletaRevision_Sucursal">
+            <End Role="Sucursal" EntitySet="Sucursal" />
+            <End Role="BoletaRevision" EntitySet="BoletaRevision" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BoletaRevision_TipoPagos" Association="Self.FK_BoletaRevision_TipoPagos">
+            <End Role="TipoPagos" EntitySet="TipoPagos" />
+            <End Role="BoletaRevision" EntitySet="BoletaRevision" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CertificadoRevision_EstadoRevision" Association="Self.FK_CertificadoRevision_EstadoRevision">
+            <End Role="EstadoRevision" EntitySet="EstadoRevision" />
+            <End Role="CertificadoRevision" EntitySet="CertificadoRevision" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ciudad_Region" Association="Self.FK_Ciudad_Region">
+            <End Role="Region" EntitySet="Region" />
+            <End Role="Ciudad" EntitySet="Ciudad" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PropietarioVehiculo_Ciudad" Association="Self.FK_PropietarioVehiculo_Ciudad">
+            <End Role="Ciudad" EntitySet="Ciudad" />
+            <End Role="PropietarioVehiculo" EntitySet="PropietarioVehiculo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Ciudad" Association="Self.FK_Usuario_Ciudad">
+            <End Role="Ciudad" EntitySet="Ciudad" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Jefatura" Association="Self.FK_Usuario_Jefatura">
+            <End Role="Jefatura" EntitySet="Jefatura" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Perfiles" Association="Self.FK_Usuario_Perfiles">
+            <End Role="Perfiles" EntitySet="Perfiles" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBIDIAModelStoreContainer" CdmEntityContainer="IdiaEntities">
+          <EntitySetMapping Name="atencionVehiculo">
+            <EntityTypeMapping TypeName="DBIDIAModel.atencionVehiculo">
+              <MappingFragment StoreEntitySet="atencionVehiculo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="propietarioId" ColumnName="propietarioId" />
+                <ScalarProperty Name="vehiculoTipoId" ColumnName="vehiculoTipoId" />
+                <ScalarProperty Name="PatenteVehiculo" ColumnName="PatenteVehiculo" />
+                <ScalarProperty Name="SelloId" ColumnName="SelloId" />
+                <ScalarProperty Name="marcaId" ColumnName="marcaId" />
+                <ScalarProperty Name="modeloId" ColumnName="modeloId" />
+                <ScalarProperty Name="año" ColumnName="año" />
+                <ScalarProperty Name="cilindradaVehiculo" ColumnName="cilindradaVehiculo" />
+                <ScalarProperty Name="nroMotor" ColumnName="nroMotor" />
+                <ScalarProperty Name="nroChasis" ColumnName="nroChasis" />
+                <ScalarProperty Name="nroPuertas" ColumnName="nroPuertas" />
+                <ScalarProperty Name="transmisionId" ColumnName="transmisionId" />
+                <ScalarProperty Name="combustibleId" ColumnName="combustibleId" />
+                <ScalarProperty Name="traccionId" ColumnName="traccionId" />
+                <ScalarProperty Name="servicioId" ColumnName="servicioId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BoletaRevision">
+            <EntityTypeMapping TypeName="DBIDIAModel.BoletaRevision">
+              <MappingFragment StoreEntitySet="BoletaRevision">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nroAtencionId" ColumnName="nroAtencionId" />
+                <ScalarProperty Name="SucursalId" ColumnName="SucursalId" />
+                <ScalarProperty Name="vehiculoPatente" ColumnName="vehiculoPatente" />
+                <ScalarProperty Name="formaPagoId" ColumnName="formaPagoId" />
+                <ScalarProperty Name="ServicioId" ColumnName="ServicioId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CertificadoRevision">
+            <EntityTypeMapping TypeName="DBIDIAModel.CertificadoRevision">
+              <MappingFragment StoreEntitySet="CertificadoRevision">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="atencionNroId" ColumnName="atencionNroId" />
+                <ScalarProperty Name="estadoRevisionId" ColumnName="estadoRevisionId" />
+                <ScalarProperty Name="nroCertMTT" ColumnName="nroCertMTT" />
+                <ScalarProperty Name="VehiculoPatente" ColumnName="VehiculoPatente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ciudad">
+            <EntityTypeMapping TypeName="DBIDIAModel.Ciudad">
+              <MappingFragment StoreEntitySet="Ciudad">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="codigoCiudadMTT" ColumnName="codigoCiudadMTT" />
+                <ScalarProperty Name="regionId" ColumnName="regionId" />
+                <ScalarProperty Name="nombreCiudad" ColumnName="nombreCiudad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EstadoRevision">
+            <EntityTypeMapping TypeName="DBIDIAModel.EstadoRevision">
+              <MappingFragment StoreEntitySet="EstadoRevision">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nroAtencionId" ColumnName="nroAtencionId" />
+                <ScalarProperty Name="estadoRevisión" ColumnName="estadoRevisión" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Jefatura">
+            <EntityTypeMapping TypeName="DBIDIAModel.Jefatura">
+              <MappingFragment StoreEntitySet="Jefatura">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="tipoJefatura" ColumnName="tipoJefatura" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MarcaVehiculo">
+            <EntityTypeMapping TypeName="DBIDIAModel.MarcaVehiculo">
+              <MappingFragment StoreEntitySet="MarcaVehiculo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="codigoMarcaMTT" ColumnName="codigoMarcaMTT" />
+                <ScalarProperty Name="nombreMarca" ColumnName="nombreMarca" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ModeloVehiculo">
+            <EntityTypeMapping TypeName="DBIDIAModel.ModeloVehiculo">
+              <MappingFragment StoreEntitySet="ModeloVehiculo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="codigoModeloMTT" ColumnName="codigoModeloMTT" />
+                <ScalarProperty Name="nombreModelo" ColumnName="nombreModelo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Perfiles">
+            <EntityTypeMapping TypeName="DBIDIAModel.Perfiles">
+              <MappingFragment StoreEntitySet="Perfiles">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="perfil" ColumnName="perfil" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PropietarioVehiculo">
+            <EntityTypeMapping TypeName="DBIDIAModel.PropietarioVehiculo">
+              <MappingFragment StoreEntitySet="PropietarioVehiculo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="rutPropietario" ColumnName="rutPropietario" />
+                <ScalarProperty Name="nombresPropietario" ColumnName="nombresPropietario" />
+                <ScalarProperty Name="propietarioApellidoPaterno" ColumnName="propietarioApellidoPaterno" />
+                <ScalarProperty Name="propietarioApellidoMaterno" ColumnName="propietarioApellidoMaterno" />
+                <ScalarProperty Name="ciudadId" ColumnName="ciudadId" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Region">
+            <EntityTypeMapping TypeName="DBIDIAModel.Region">
+              <MappingFragment StoreEntitySet="Region">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="codigoRegionMTT" ColumnName="codigoRegionMTT" />
+                <ScalarProperty Name="nombreRegion" ColumnName="nombreRegion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ResponsablePago">
+            <EntityTypeMapping TypeName="DBIDIAModel.ResponsablePago">
+              <MappingFragment StoreEntitySet="ResponsablePago">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="NroAtencionId" ColumnName="NroAtencionId" />
+                <ScalarProperty Name="rutCliente" ColumnName="rutCliente" />
+                <ScalarProperty Name="clienteNombres" ColumnName="clienteNombres" />
+                <ScalarProperty Name="clienteApellidoPaterno" ColumnName="clienteApellidoPaterno" />
+                <ScalarProperty Name="cleinteApellidoMaterno" ColumnName="cleinteApellidoMaterno" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="dirección" ColumnName="dirección" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ResultadoEstacionGases">
+            <EntityTypeMapping TypeName="DBIDIAModel.ResultadoEstacionGases">
+              <MappingFragment StoreEntitySet="ResultadoEstacionGases">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nroAtencionId" ColumnName="nroAtencionId" />
+                <ScalarProperty Name="vehiculoPatente" ColumnName="vehiculoPatente" />
+                <ScalarProperty Name="resultadoOpacidad" ColumnName="resultadoOpacidad" />
+                <ScalarProperty Name="resultadoCo2" ColumnName="resultadoCo2" />
+                <ScalarProperty Name="resultadoHc" ColumnName="resultadoHc" />
+                <ScalarProperty Name="resultadoNo" ColumnName="resultadoNo" />
+                <ScalarProperty Name="resultadoNoCo2" ColumnName="resultadoNoCo2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ResultadosEstacionFrenometro">
+            <EntityTypeMapping TypeName="DBIDIAModel.ResultadosEstacionFrenometro">
+              <MappingFragment StoreEntitySet="ResultadosEstacionFrenometro">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nroAtencionId" ColumnName="nroAtencionId" />
+                <ScalarProperty Name="vechiculoPatente" ColumnName="vechiculoPatente" />
+                <ScalarProperty Name="resultadoAlineacion" ColumnName="resultadoAlineacion" />
+                <ScalarProperty Name="resultadoSuspencion" ColumnName="resultadoSuspencion" />
+                <ScalarProperty Name="resultadoFrenoIzquierdo" ColumnName="resultadoFrenoIzquierdo" />
+                <ScalarProperty Name="resultadoFrenoDerecho" ColumnName="resultadoFrenoDerecho" />
+                <ScalarProperty Name="resultadoFrenoEmergencia" ColumnName="resultadoFrenoEmergencia" />
+                <ScalarProperty Name="resultadoLucesAltas" ColumnName="resultadoLucesAltas" />
+                <ScalarProperty Name="resultadoLucesBajas" ColumnName="resultadoLucesBajas" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ResultadosEstacionVisuales">
+            <EntityTypeMapping TypeName="DBIDIAModel.ResultadosEstacionVisuales">
+              <MappingFragment StoreEntitySet="ResultadosEstacionVisuales">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nroAtencionId" ColumnName="nroAtencionId" />
+                <ScalarProperty Name="vehiculoPatente" ColumnName="vehiculoPatente" />
+                <ScalarProperty Name="comprobacionNroMotor" ColumnName="comprobacionNroMotor" />
+                <ScalarProperty Name="comprobacionNroChazis" ColumnName="comprobacionNroChazis" />
+                <ScalarProperty Name="estadoLuzFreno" ColumnName="estadoLuzFreno" />
+                <ScalarProperty Name="estadoTercerLuzFreno" ColumnName="estadoTercerLuzFreno" />
+                <ScalarProperty Name="estadoLuzVirage" ColumnName="estadoLuzVirage" />
+                <ScalarProperty Name="estadoLuzReversa" ColumnName="estadoLuzReversa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SelloVehiculo">
+            <EntityTypeMapping TypeName="DBIDIAModel.SelloVehiculo">
+              <MappingFragment StoreEntitySet="SelloVehiculo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="selloCodigoMTT" ColumnName="selloCodigoMTT" />
+                <ScalarProperty Name="sello" ColumnName="sello" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Servicios">
+            <EntityTypeMapping TypeName="DBIDIAModel.Servicios">
+              <MappingFragment StoreEntitySet="Servicios">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="codigoServicioMtt" ColumnName="codigoServicioMtt" />
+                <ScalarProperty Name="DescripciónServicio" ColumnName="DescripciónServicio" />
+                <ScalarProperty Name="valorServicio" ColumnName="valorServicio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sucursal">
+            <EntityTypeMapping TypeName="DBIDIAModel.Sucursal">
+              <MappingFragment StoreEntitySet="Sucursal">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="codigoSucursalMTT" ColumnName="codigoSucursalMTT" />
+                <ScalarProperty Name="NombreSucursal" ColumnName="NombreSucursal" />
+                <ScalarProperty Name="ciudadNombre" ColumnName="ciudadNombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoCombustible">
+            <EntityTypeMapping TypeName="DBIDIAModel.TipoCombustible">
+              <MappingFragment StoreEntitySet="TipoCombustible">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="codigoCombustibleMTT" ColumnName="codigoCombustibleMTT" />
+                <ScalarProperty Name="tipoCombustible1" ColumnName="tipoCombustible" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoPagos">
+            <EntityTypeMapping TypeName="DBIDIAModel.TipoPagos">
+              <MappingFragment StoreEntitySet="TipoPagos">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="tipoPago" ColumnName="tipoPago" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoVehiculo">
+            <EntityTypeMapping TypeName="DBIDIAModel.TipoVehiculo">
+              <MappingFragment StoreEntitySet="TipoVehiculo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="codigoTipoVehiculoMTT" ColumnName="codigoTipoVehiculoMTT" />
+                <ScalarProperty Name="tipoVehiculo1" ColumnName="tipoVehiculo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Traccion">
+            <EntityTypeMapping TypeName="DBIDIAModel.Traccion">
+              <MappingFragment StoreEntitySet="Traccion">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="traccionCodigoMTT" ColumnName="traccionCodigoMTT" />
+                <ScalarProperty Name="tipoTraccion" ColumnName="tipoTraccion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transmision">
+            <EntityTypeMapping TypeName="DBIDIAModel.Transmision">
+              <MappingFragment StoreEntitySet="Transmision">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="codigoTransmisionMTT" ColumnName="codigoTransmisionMTT" />
+                <ScalarProperty Name="tipoTransmision" ColumnName="tipoTransmision" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TrazaWebServiceMTT">
+            <EntityTypeMapping TypeName="DBIDIAModel.TrazaWebServiceMTT">
+              <MappingFragment StoreEntitySet="TrazaWebServiceMTT">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nroAtencionId" ColumnName="nroAtencionId" />
+                <ScalarProperty Name="respuestaWebService" ColumnName="respuestaWebService" />
+                <ScalarProperty Name="fechaHoraRespuesta" ColumnName="fechaHoraRespuesta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="DBIDIAModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombreUsuario" ColumnName="nombreUsuario" />
+                <ScalarProperty Name="apellidoPaterno" ColumnName="apellidoPaterno" />
+                <ScalarProperty Name="apellidoMaterno" ColumnName="apellidoMaterno" />
+                <ScalarProperty Name="mail" ColumnName="mail" />
+                <ScalarProperty Name="ciudadId" ColumnName="ciudadId" />
+                <ScalarProperty Name="perfilId" ColumnName="perfilId" />
+                <ScalarProperty Name="jefaturaId" ColumnName="jefaturaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
